@@ -58,7 +58,7 @@ def train_and_test(model, optimizer, train_loader, valid_loader, test_loader, n_
     test_num = 0
 
     for x, y in (test_loader):
-        out = model(x.float().to(device))[:,15:-1].to(device)
+        out = best_model(x.float().to(device))[:,15:-1].to(device)
         labels = y[:,16:].float().to(device)
         loss = mse_loss(out, labels.float())
 

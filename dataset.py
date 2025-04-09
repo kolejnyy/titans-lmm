@@ -39,7 +39,7 @@ class TSDataset(Dataset):
         # Otherwise, return the whole sequence's contexts and targets 
         if self.name == "sinwave":
             return self.data[index], self.data[index]
-        return self.data[index, :-1], self.data[index, -1]
+        return self.data[index, :, :-1], self.data[index, :, -1]
 
     def process_data(self, segment, seg_size):
 

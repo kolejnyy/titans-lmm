@@ -188,8 +188,8 @@ The test MSE results are presented below:
 | Model | sinwave | windpow |
 |---|---|---|
 | Attention baseline | 0.0365 |  |
-| Titan MAC (1-layer NMM) | 0.184 |  |
-| Titan MAC (2-layer NMM) | 0.183 |  |
+| Titan MAC (1-layer NMM) | 0.0184 |  |
+| Titan MAC (2-layer NMM) | 0.0183 |  |
 | LSTM | 0.0156 |  |
 
 ### Ablation on $\eta$ and $\theta$

@@ -91,7 +91,7 @@ class AttentionPMModel(nn.Module):
         self.pm_len = pm_len
         self.hidden_dim = hidden_dim
 
-        self.persistent_memory = nn.Parameter(torch.randn((pm_len, self.input_dim)))
+        self.persistent_memory = nn.Parameter(torch.randn((pm_len, self.hidden_dim)))
 
         self.emb_layer = nn.Linear(input_dim, hidden_dim)
 
@@ -106,7 +106,7 @@ class AttentionPMModel(nn.Module):
         ])
         self.final_layer = nn.Linear(seq_len * (pm_len + hidden_dim), 1)
 
-        self.deivce = None
+        self.device = None
 
     def forward(self, x):
 

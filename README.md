@@ -154,6 +154,7 @@ We validate the effectiveness of small-scale Titans on the task of time series p
 $$
 x = (x_ 0, x_ 1, ... , x_ {499})
 $$
+
 the objective in the studied problem is to return a sequence
 
 $$

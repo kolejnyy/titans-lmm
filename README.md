@@ -172,8 +172,9 @@ We train each model using MSE with Adam optimizer with learning rate $0.001$ for
 
 Titans are a composition of attention-based and recurrent models. For this reason, we compare it to:
 
-- a Transformer-like attention baseline, able to process only sequences of length $C$. The architecture of this model matches the used Titan MAC architecture with removed NMM and persistent memory,
-- an LSTM-based model, processing the input sequence recursively from start to end. The hidden embedding of this model is selected to be $16$.
+- (Attn): a Transformer-like attention baseline, able to process only sequences of length $C$. The architecture of this model matches the used Titan MAC architecture with removed NMM and persistent memory,
+- (Attn-PM): the same architecture as above, but also including the persistent memory weights,
+- (LSTM): an LSTM-based model, processing the input sequence recursively from start to end. The hidden embedding of this model is selected to be $16$.
 
 Both baselines are available in `models.py`.
 
@@ -187,7 +188,8 @@ The test MSE results are presented below:
 
 | Model | sinwave | windpow |
 |---|---|---|
-| Attention baseline | 0.0365 |  |
+| Attn | 0.0365 |  |
+| Attn-PM | 0.0291 |  |
 | Titan MAC (1-layer NMM) | 0.0184 |  |
 | Titan MAC (2-layer NMM) | 0.0183 |  |
 | LSTM | 0.0156 |  |

@@ -188,11 +188,20 @@ The test MSE results are presented below:
 
 | Model | sinwave | windpow |
 |---|---|---|
-| Attn | 0.0365 |  |
-| Attn-PM | 0.0291 |  |
-| Titan MAC (1-layer NMM) | 0.0184 |  |
-| Titan MAC (2-layer NMM) | 0.0183 |  |
-| LSTM | 0.0156 |  |
+| Attn | 0.0262 | 0.0353 |
+| Attn-PM | 0.0274 | 0.0357 |
+| Titan MAC (1-layer NMM) | 0.0184 | 0.0373 |
+| Titan MAC (2-layer NMM) | 0.0183 | 0.0357 |
+| LSTM | 0.0156 | 0.0356 |
+
+We can observe that scores on the wind power prediction dataset are similar for all the models, with the minor differences potentially coming from randomness in training. The sine wave dataset, however, provides more insight into the predictive power of the studied methods. Expectedly, Attn, unable to capture long-term dependencies, performs much poorer than methods with recursive components. Interestingly, adding the persistent memory weights did not improve the attention-style architecture. The other baseline, LSTM performs the best among all considered models. This is not surprising, as the recursive mechanism in LSTM should be sufficient to capture the nature of sine waves.
+
+Looking at Titan's results, we can see two important things:
+
+- They perform significantly better than the base attention models, with performance closer to LSTM,
+- Setting NMM to be a 2-layer MLP yields better results than using a single-layer module.
+
+Both of these observations suggest that the Neural Memory Module is indeed able to capture long-term dependencies in data. Despite losing to LSTM, Titans significantly improve over the fixed-size context window models, showing the potential of including long-term memory in the Transformer architecture.
 
 ### Ablation on $\eta$ and $\theta$
 
